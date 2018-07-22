@@ -1,0 +1,29 @@
+{
+   "$schema": "http://json-schema.org/draft-04/schema#",
+   "title": "Task",
+   "description": "Schema for Creating a task",
+   "type": "object",
+	
+   "properties": {
+
+      "tname": {
+         "description": "Task Name",
+         "type": "string",
+         "minLength":3
+      },
+		
+      "end_date": {
+         "description": "Task Completion Date",
+         "type": "string",
+         "format":"date",
+         "minLength":10,
+         "maxLength":10
+      },
+		
+      "notify": {
+    	 "description": "Notify before(mins)",
+         "type": "number",
+         "minimum": 5
+      }
+   }
+}
