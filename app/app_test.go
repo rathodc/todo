@@ -49,7 +49,7 @@ func Router() *mux.Router {
 func TestGetTaskList(t *testing.T) {
     dal.InitializeUsers()
     request, _ := http.NewRequest("GET", "/api/v1/todo/task_list", nil)
-    request.Header.Set("Auth-Token","abc")
+    request.Header.Set("Auth-Token","e4b76ae67e4b")
     response := httptest.NewRecorder()
     Router().ServeHTTP(response, request)
     assert.Equal(t, 200, response.Code, "OK response is expected")
@@ -60,7 +60,7 @@ func TestCreateTaskPass(t *testing.T) {
 
 
     request, _ := http.NewRequest("GET", "/api/v1/todo/task_list", nil)
-    request.Header.Set("Auth-Token","abc")
+    request.Header.Set("Auth-Token","e4b76ae67e4b")
     response := httptest.NewRecorder()
     Router().ServeHTTP(response, request)
     res_body,_:=ioutil.ReadAll(response.Body)
@@ -69,12 +69,12 @@ func TestCreateTaskPass(t *testing.T) {
 
     req_body:= []byte(`{"tname":"Create Design","end_date":"2018-09-01","notify":60}`)
     request, _ = http.NewRequest("POST", "/api/v1/todo/task", bytes.NewBuffer(req_body))
-    request.Header.Set("Auth-Token","abc")
+    request.Header.Set("Auth-Token","e4b76ae67e4b")
     response = httptest.NewRecorder()
     Router().ServeHTTP(response, request)
 
     request, _ = http.NewRequest("GET", "/api/v1/todo/task_list", nil)
-    request.Header.Set("Auth-Token","abc")
+    request.Header.Set("Auth-Token","e4b76ae67e4b")
     response = httptest.NewRecorder()
     Router().ServeHTTP(response, request)
     res_body,_=ioutil.ReadAll(response.Body)
@@ -88,7 +88,7 @@ func TestCreateTaskFail(t *testing.T) {
     dal.InitializeUsers()
     var r_body = []byte(`{"tname":"Create Design","end_date":"2018-09-01"}`)
     request, _ := http.NewRequest("POST", "/api/v1/todo/task", bytes.NewBuffer(r_body))
-    request.Header.Set("Auth-Token","abc")
+    request.Header.Set("Auth-Token","e4b76ae67e4b")
     response := httptest.NewRecorder()
     Router().ServeHTTP(response, request)
     assert.Equal(t, 400, response.Code, "Bad Request expected")
@@ -101,12 +101,12 @@ func TestUpdateTask(t *testing.T) {
 
     req_body:= []byte(`{"tname":"Create Design","end_date":"2018-09-01","notify":60}`)
     request, _ := http.NewRequest("POST", "/api/v1/todo/task", bytes.NewBuffer(req_body))
-    request.Header.Set("Auth-Token","abc")
+    request.Header.Set("Auth-Token","e4b76ae67e4b")
     response:= httptest.NewRecorder()
     Router().ServeHTTP(response, request)
 
     request, _ = http.NewRequest("GET", "/api/v1/todo/task_list", nil)
-    request.Header.Set("Auth-Token","abc")
+    request.Header.Set("Auth-Token","e4b76ae67e4b")
     response = httptest.NewRecorder()
     Router().ServeHTTP(response, request)
     res_body,_:=ioutil.ReadAll(response.Body)
@@ -118,7 +118,7 @@ func TestUpdateTask(t *testing.T) {
 
     json_str,_:=json.Marshal(tasks[0])
     request, _ = http.NewRequest("PUT", "/api/v1/todo/task/"+tid, bytes.NewBuffer(json_str))
-    request.Header.Set("Auth-Token","abc")
+    request.Header.Set("Auth-Token","e4b76ae67e4b")
     response= httptest.NewRecorder()
     Router().ServeHTTP(response, request)
 
@@ -133,12 +133,12 @@ func TestDeleteTask(t *testing.T) {
 
     req_body:= []byte(`{"tname":"Create Design","end_date":"2018-09-01","notify":60}`)
     request, _ := http.NewRequest("POST", "/api/v1/todo/task", bytes.NewBuffer(req_body))
-    request.Header.Set("Auth-Token","abc")
+    request.Header.Set("Auth-Token","e4b76ae67e4b")
     response:= httptest.NewRecorder()
     Router().ServeHTTP(response, request)
 
     request, _ = http.NewRequest("GET", "/api/v1/todo/task_list", nil)
-    request.Header.Set("Auth-Token","abc")
+    request.Header.Set("Auth-Token","e4b76ae67e4b")
     response = httptest.NewRecorder()
     Router().ServeHTTP(response, request)
     res_body,_:=ioutil.ReadAll(response.Body)
@@ -148,13 +148,13 @@ func TestDeleteTask(t *testing.T) {
     assert.Equal(t, 1, len(tasks), "Now the length should be 1")
 
     request, _ = http.NewRequest("DELETE", "/api/v1/todo/task/"+tid, nil)
-    request.Header.Set("Auth-Token","abc")
+    request.Header.Set("Auth-Token","e4b76ae67e4b")
     response= httptest.NewRecorder()
     Router().ServeHTTP(response, request)
     assert.Equal(t, 204, response.Code, "No response status code is expected")
 
     request, _ = http.NewRequest("GET", "/api/v1/todo/task_list", nil)
-    request.Header.Set("Auth-Token","abc")
+    request.Header.Set("Auth-Token","e4b76ae67e4b")
     response = httptest.NewRecorder()
     Router().ServeHTTP(response, request)
     res_body,_=ioutil.ReadAll(response.Body)
@@ -169,12 +169,12 @@ func TestGetTask(t *testing.T) {
 
     req_body := []byte(`{"tname":"Create Design","end_date":"2018-09-01","notify":60}`)
     request, _ := http.NewRequest("POST", "/api/v1/todo/task", bytes.NewBuffer(req_body))
-    request.Header.Set("Auth-Token", "abc")
+    request.Header.Set("Auth-Token", "e4b76ae67e4b")
     response := httptest.NewRecorder()
     Router().ServeHTTP(response, request)
 
     request, _ = http.NewRequest("GET", "/api/v1/todo/task_list", nil)
-    request.Header.Set("Auth-Token", "abc")
+    request.Header.Set("Auth-Token", "e4b76ae67e4b")
     response = httptest.NewRecorder()
     Router().ServeHTTP(response, request)
     res_body, _ := ioutil.ReadAll(response.Body)
@@ -182,7 +182,7 @@ func TestGetTask(t *testing.T) {
 
     tid:=tasks[0].Tid
     request, _ = http.NewRequest("GET", "/api/v1/todo/task/"+tid, nil)
-    request.Header.Set("Auth-Token","abc")
+    request.Header.Set("Auth-Token","e4b76ae67e4b")
     response= httptest.NewRecorder()
     Router().ServeHTTP(response, request)
     res_body, _ = ioutil.ReadAll(response.Body)
