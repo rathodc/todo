@@ -49,3 +49,9 @@ chirag@chirag-rathod:~/test_assignment/src/github.com/rathodc/todo/app$ go insta
 chirag@chirag-rathod:~/test_assignment/src/github.com/rathodc/todo/app$ export PATH=$GOPATH/bin:$PATH
 chirag@chirag-rathod:~/test_assignment/src/github.com/rathodc/todo/app$
 ```
+
+### 6.Launch Application
+```
+chirag@chirag-rathod:~/test_assignment/src/github.com/rathodc/todo/app$ app
+Application will run at port 8000
+```
