@@ -10,9 +10,8 @@ import (
 
 func loggingNValidationMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-        log.Println(r.RequestURI)
+        log.Println("URI : "+r.RequestURI)
         token:=r.Header.Get("Auth-Token")
-        log.Println(token)
         if !dal.IsValidToken(token) {
             http.Error(w, `{"error_title":"Authorization_Unavailable","error_message":"Please provide Valid Auth Token"}`, http.StatusUnauthorized)
         } else {

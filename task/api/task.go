@@ -59,7 +59,6 @@ func UpdateTaskHandler(w http.ResponseWriter, r *http.Request)  {
 
 func GetTaskHandler(w http.ResponseWriter, r *http.Request)  {
 	params:= mux.Vars(r)
-	log.Println("params id : "+params["tid"])
 	res,status:=bl.GetTask(r.Header.Get("Auth-Token"),params["tid"])
 	w.Header().Set("Content-Type", "application/json")
 	if !status {
