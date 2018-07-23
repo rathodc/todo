@@ -23,6 +23,10 @@ func RemoveTask(user string,tid string) bool {
 	return dal.RemoveTask(user,tid)
 }
 
+func RemoveTaskList(user string) bool {
+	return dal.RemoveTaskList(user)
+}
+
 
 func GetTaskList(user string) string {
 	tsk_list:= dal.GetTaskList(user)

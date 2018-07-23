@@ -55,6 +55,11 @@ func RemoveTask(user string,tid string) bool {
 	return false
 }
 
+func RemoveTaskList(user string) bool {
+	task_list[user] = make([]Task,0)
+	return true
+}
+
 func GetTaskList(user string) []Task {
 	task_obj,found:= task_list[user]
 	if found {

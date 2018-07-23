@@ -26,6 +26,7 @@ func CreateApp()  {
 	router := mux.NewRouter()
 	router.Use(loggingNValidationMiddleware)
 	router.HandleFunc("/api/v1/todo/task_list", api.GetTaskListHandler).Methods("GET")
+	router.HandleFunc("/api/v1/todo/task_list", api.RemoveTaskListHandler).Methods("DELETE")
 	router.HandleFunc("/api/v1/todo/task", api.AddTaskHandler).Methods("POST")
 	router.HandleFunc("/api/v1/todo/task/{tid}", api.UpdateTaskHandler).Methods("PUT")
 	router.HandleFunc("/api/v1/todo/task/{tid}", api.RemoveTaskHandler).Methods("DELETE")
