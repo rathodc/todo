@@ -28,7 +28,7 @@ func loggingNValidationMiddleware(next http.Handler) http.Handler {
         log.Println(r.RequestURI)
         token:=r.Header.Get("Auth-Token")
         if !dal.IsValidToken(token) {
-            http.Error(w, `{"error_title":"Authorization_Unavailable","error_message":"Please provide Valid Auth Token"}`, http.StatusForbidden)
+            http.Error(w, `{"error_title":"Authorization_Unavailable","error_message":"Please provide Valid Auth Token"}`, http.StatusUnauthorized)
         } else {
             next.ServeHTTP(w, r)
         }
