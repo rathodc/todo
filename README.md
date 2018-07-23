@@ -51,6 +51,7 @@ chirag@chirag-rathod:~/test_assignment/src/github.com/rathodc/todo/app$
 ```
 
 ### 6.Launch Application
+Please note that run the app binary while you are inside app directory
 ```
 chirag@chirag-rathod:~/test_assignment/src/github.com/rathodc/todo/app$ app
 Application will run at port 8000
