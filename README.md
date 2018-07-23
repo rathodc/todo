@@ -45,6 +45,7 @@ chirag@chirag-rathod:~/test_assignment$ go get github.com/stretchr/testify/asser
 
 ### 5.Install Application
 ```
+chirag@chirag-rathod:~/test_assignment$ cd src/github.com/rathodc/todo/app
 chirag@chirag-rathod:~/test_assignment/src/github.com/rathodc/todo/app$ go install
 chirag@chirag-rathod:~/test_assignment/src/github.com/rathodc/todo/app$ export PATH=$GOPATH/bin:$PATH
 chirag@chirag-rathod:~/test_assignment/src/github.com/rathodc/todo/app$
@@ -274,4 +275,14 @@ Application will run at port 8000
 ```
 chirag@chirag-rathod:~/test_assignment/src/github.com/rathodc/todo/app$ go test
 ```
+
+# Building using docker
+
+### Go to todo/build directory and execute below commands
+```
+root@chirag-rathod:/home/chirag/test_assignment/src/github.com/rathodc/todo/build# docker build -f Dockerfile -t todo/code:1.0.0 .
+
+root@chirag-rathod:/home/chirag/test_assignment/src/github.com/rathodc/todo/build# docker run -d -p 8000:8000 todo/code:1.0.0
+```
+Wait for few secs and application will be up and running
 
