@@ -1,5 +1,4 @@
 # todo application
-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
 ### This is a simple To DO application with following features :-<br>
 1.Provides an endpoint to get a list of tasks<br>
 2.Provides an endpoint to add a task to your "To-Do" list<br>
